@@ -1,0 +1,110 @@
+body{
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(232, 205, 232);
+
+}
+
+header{
+    background-color: rgb(241, 136, 241);
+    text-align: center;
+    padding:20px;
+    color:white;
+    border-style: solid;
+    border-color: black;
+}
+.right-image {
+    float: right; /* Allinea solo questa immagine a destra */
+    margin-left: 10px;
+}
+.left-image {
+    float: left; /* Allinea solo questa immagine a sx */
+    margin-left: 10px;
+}
+
+.container {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     padding: 20px;
+     flex-grow: 1;
+        }
+        .left-sidebar {
+        height: 100%;
+        width: 100%;
+      flex-basis: 20%;
+     background-color: #eaeaea;
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
+        }
+    content {
+    flex-basis: 60%;
+     background-color: #fff;
+  padding: 20px;
+  border-style: solid;
+  border-color: black;
+        }
+    .right-navbar {
+    flex-basis: 20%;
+ background-color: #eaeaea;
+  padding: 20px;
+  border-style: solid;
+  border-color: black;
+        }
+
+     /* Aggiungi stile al menu di navigazione */
+.right-navbar {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex; /* Utilizza un layout flessibile */
+    flex-direction: column; /* Allinea i bottoni in colonna */
+    align-items: center; /* Centra i bottoni */
+}
+
+.right-navbar form {
+    margin-bottom: 10px;
+    width: 100%; /* Fai sì che il form occupi l'intera larghezza */
+    text-align: center; /* Centra il testo */
+}
+
+.right-navbar input[type="button"] {
+    background-color: #4CAF50; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    padding: 10px 20px; /* Spaziatura interna */
+    border: none; /* Nessun bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    cursor: pointer; /* Puntatore del mouse */
+    font-size: 16px; /* Dimensione del testo */
+    width: 100%; /* Fai sì che il bottone occupi l'intera larghezza */
+}
+
+.right-navbar input[type="button"]:hover {
+    background-color: #45a049; /* Cambia colore al passaggio del mouse */
+}
+
+    footer {
+     background-color: #f2f2f2;
+    text-align: center;
+     padding: 20px;
+     border-style: solid;
+     border-color: black;
+        }
+        ul {
+            border: 1px solid #555;
+          }
+          
+          li {
+            text-align: center;
+            border-bottom: 1px solid #555;
+          }
+          
+          li:last-child {
+            border-bottom: none;
+          }
+

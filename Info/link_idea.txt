@@ -1,0 +1,10 @@
+https://programmazionewebunibg.altervista.org/
+
+https://servsanitariopw9.altervista.org/
+
+nella nav metti in ordine le cose per ordine di importanza
+metti le info mostrate a display tutte leggibili!!
+metti il tutto responsive a tutto! Anche i footer
+inserisci conferme/ alert alle azioni di CRUD 
+controlla le eliminazioni (are u sure bro?)
+NON METTERE LE QUERY VISIBILI--->permetti la modifica direttamente del db se sannno come è fatto!

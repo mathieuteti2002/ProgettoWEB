@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patologia</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!--<h1>Servizio Sanitario</h1>-->
+		<img src="img/servizio_sanitario.png" height="100" width="600">
+		<img class="right-image" src="img/ospedale2.png" height="100" width="100">
+		<img class="left-image" src="img/home.png" height="100" width="100">
+    </header>
+   <div class="container">
+	<div class="left-sidebar">
+		<!-- Qui mettiamo i filtri da ricerca -->
+		<h2>Filtro Ricerca</h2>
+		<form action="/submit.php">
+			<input type="hidden" name="source" value="Patologia">
+			<label for="fname">Codice:</label><br>
+			<input type="text">
+			<br>
+			<br>
+			<label for="fname">Nome:</label><br>
+			<input type="text">
+			<br>
+			<br>
+			<label for="fname">Criticità:</label><br>
+			<input type="text">
+			<br>
+			<br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+	<div class="content">
+		<!-- Qui mettiamo i Contenuti/risultati -->
+		<h2>Contenuti/Risultati</h2>
+	</div>
+	<div class="right-navbar">
+		<a href="index.html"><input type="button"value="Home"></a><br><br>
+		<a href="Ospedale.php"><input type="button"value="Ospedale"></a><br><br>
+		<a href="Cittadino.html"><input type="button" value="Cittadino"></a><br><br>
+		<a href="Ricovero.html"><input type="button" value="Ricovero"></a><br><br>
+		<a href="Patologia.html"><input type="button" value="Patologia"></a><br><br></div>    
+    </div>
+    <footer>
+        <!-- Contenuto del footer -->
+        <p>Programmazione Web 2023/2024 - Teti, Bonfanti, Selmani</p>
+    </footer>
+</body>
+</html>
