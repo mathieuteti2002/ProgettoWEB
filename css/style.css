@@ -1,110 +1,238 @@
-body{
-    display:flex;
+body {
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
     padding: 0;
     background-color: rgb(232, 205, 232);
+}
+h2{
+    text-align: center;
+    text-decoration: underline;
+}
+h1{
+    text-align: center;
 
 }
+/*Indico quale bottone è attualmente attivo*/
+.active{
+    background-color: rgb(0, 0, 0) !important; 
+}
 
-header{
+header {
     background-color: rgb(241, 136, 241);
     text-align: center;
-    padding:20px;
-    color:white;
+    padding: 20px;
+    color: white;
     border-style: solid;
     border-color: black;
 }
+
 .right-image {
-    float: right; /* Allinea solo questa immagine a destra */
+    float: right;
+    /* Allinea solo questa immagine a destra */
     margin-left: 10px;
 }
+
 .left-image {
-    float: left; /* Allinea solo questa immagine a sx */
+    float: left;
+    /* Allinea solo questa immagine a sx */
     margin-left: 10px;
 }
 
 .container {
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-     justify-content: space-between;
-     padding: 20px;
-     flex-grow: 1;
-        }
-        .left-sidebar {
-        height: 100%;
-        width: 100%;
-      flex-basis: 20%;
-     background-color: #eaeaea;
+    display: flex;
+    flex-direction: row;
+    /*flex-wrap: wrap;*/
+    justify-content: space-between;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.left-sidebar {
+    height: 100%;
+    width: 100%;
+    flex-basis: 20%;
+    background-color: #eaeaea;
     padding: 20px;
     border-style: solid;
     border-color: black;
-        }
-    content {
-    flex-basis: 60%;
-     background-color: #fff;
-  padding: 20px;
-  border-style: solid;
-  border-color: black;
-        }
-    .right-navbar {
-    flex-basis: 20%;
- background-color: #eaeaea;
-  padding: 20px;
-  border-style: solid;
-  border-color: black;
-        }
+}
 
-     /* Aggiungi stile al menu di navigazione */
+.content {
+    flex-basis: 60%;
+    background-color: #fff;
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
+}
+
+/* Aggiungi stile al menu di navigazione */
 .right-navbar {
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 10px;
-    display: flex; /* Utilizza un layout flessibile */
-    flex-direction: column; /* Allinea i bottoni in colonna */
-    align-items: center; /* Centra i bottoni */
+    flex-direction: column;
+    /* Allinea i bottoni in colonna */
+    align-items: center;
+    /*display: flex;*/ /*RENDE I BOTTONI SUPER RADIATI*/
+    /* Centra i bottoni */
+    flex-basis: 20%;
+    border-style: solid;
+    border-color: black;
 }
 
 .right-navbar form {
     margin-bottom: 10px;
-    width: 100%; /* Fai sì che il form occupi l'intera larghezza */
-    text-align: center; /* Centra il testo */
+    width: 100%;
+    /* Fai sì che il form occupi l'intera larghezza */
+    text-align: center;
+    /* Centra il testo */
 }
 
 .right-navbar input[type="button"] {
-    background-color: #4CAF50; /* Colore di sfondo */
-    color: white; /* Colore del testo */
-    padding: 10px 20px; /* Spaziatura interna */
-    border: none; /* Nessun bordo */
-    border-radius: 5px; /* Angoli arrotondati */
-    cursor: pointer; /* Puntatore del mouse */
-    font-size: 16px; /* Dimensione del testo */
-    width: 100%; /* Fai sì che il bottone occupi l'intera larghezza */
+    background-color: #d0a2ce;
+    /* Colore di sfondo */
+    color: white;
+    /* Colore del testo */
+    padding: 10px 20px;
+    /* Spaziatura interna */
+    border: none;
+    /* Nessun bordo */
+    border-radius: 30px;
+    /* Angoli arrotondati */
+    cursor: pointer;
+    /* Puntatore del mouse */
+    font-size: 16px;
+    /* Dimensione del testo */
+    width: 100%;
+    /* Fai sì che il bottone occupi l'intera larghezza */
 }
 
 .right-navbar input[type="button"]:hover {
-    background-color: #45a049; /* Cambia colore al passaggio del mouse */
+    background-color: #76075c;
+    /* Cambia colore al passaggio del mouse */
+}
+.right-navbar input[type="button"]:visited {
+    background-color: #76075c;
+    /* Cambia colore al passaggio del mouse */
+}
+footer {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
 }
 
-    footer {
-     background-color: #f2f2f2;
-    text-align: center;
-     padding: 20px;
-     border-style: solid;
-     border-color: black;
-        }
-        ul {
-            border: 1px solid #555;
-          }
-          
-          li {
-            text-align: center;
-            border-bottom: 1px solid #555;
-          }
-          
-          li:last-child {
-            border-bottom: none;
-          }
+ul {
+    border: 1px solid #555;
+}
 
+li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+/* Stili per lee tabelle*/
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: left;
+}
+
+.content th, .content td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.content thead {
+    background-color: #d63384; /* Magenta scuro */
+    color: #ffffff;
+}
+
+.content tbody tr {
+    background-color: #fdf1f9; /* Magenta molto chiaro */
+    border-bottom: 1px solid #ddd;
+}
+
+.content tbody tr:nth-of-type(even) {
+    background-color: #fbe4f2; /* Magenta chiaro */
+}
+
+.content tbody tr:hover {
+    background-color: #f1cfe2; /* Magenta più scuro al passaggio del mouse */
+}
+
+.content tbody td {
+    color: #333;
+}
+
+.content tbody tr:hover td {
+    color: #000;
+}
+
+.content tfoot {
+    background-color: #d63384; /* Magenta scuro */
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Stili per input text */
+.content input[type="text"]{
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fdf1f9; /* Magenta molto chiaro */
+    color: #333;
+    font-size: 16px;
+}
+
+content input[type="text"]:focus {
+    border-color: #d63384; /* Magenta scuro */
+    outline: none;
+}
+
+/* Stili per button submit */
+.content button[type="submit"] {
+    background-color: #d63384; /* Magenta scuro */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.content button[type="submit"]:hover {
+    background-color: #b82a6e; /* Magenta più scuro */
+}
+
+/* Stili per select */
+.content select {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fdf1f9; /* Magenta molto chiaro */
+    color: #333;
+    font-size: 16px;
+}
+
+.content select:focus {
+    border-color: #d63384; /* Magenta scuro */
+    outline: none;
+}

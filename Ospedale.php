@@ -90,10 +90,7 @@
 	</div>
 	<div class="content">
 		<!-- Qui mettiamo i Contenuti/risultati -->
-
-
-
-		<h2>Contenuti/Risultati</h2>
+		<h2>Ospedale</h2>
 		<table>
 			<tr>
 				<th>Codice</th>
@@ -106,9 +103,9 @@
 			</tr>
 		</table>
 	</div>
-	<div class="right-navbar">
-		<a href="index.html"><input type="button"value="Home"></a><br><br>
-		<a href="Ospedale.php"><input type="button"value="Ospedale"></a><br><br>
+	<div class="right-navbar" >
+		<a href="index.html" ><input type="button" value="Home"></a><br><br>
+		<a href="Ospedale.php"><input type="button" value="Ospedale" class="active"></a><br><br>
 		<a href="Cittadino.html"><input type="button" value="Cittadino"></a><br><br>
 		<a href="Ricovero.html"><input type="button" value="Ricovero"></a><br><br>
 		<a href="Patologia.html"><input type="button" value="Patologia"></a><br><br></div>    

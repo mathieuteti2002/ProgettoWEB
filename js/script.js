@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 let editImg = document.createElement('img');
                 editImg.src = 'img/edit.png';
                 editImg.alt = 'Modifica';
-                editImg.width = 20;
-                editImg.height = 20;
+                editImg.width = 35;
+                editImg.height = 35;
                 editLink.appendChild(editImg);
                 editLink.addEventListener('click', function(event) {
                     event.preventDefault();
@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let deleteImg = document.createElement('img');
         deleteImg.src = 'img/delete.png';
         deleteImg.alt = 'Elimina';
-        deleteImg.width = 20;
-        deleteImg.height = 20;
+        deleteImg.width = 55;
+        deleteImg.height = 40;
         deleteLink.appendChild(deleteImg);
         deleteLink.addEventListener('click', function(event) {
                     event.preventDefault();
