@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", function() {
 //DELETE------------------------------------------------------------------------------------------------------------
 function deleteHospital(codice, row) {
     if (confirm('Sei sicuro di voler eliminare questo ospedale?')) {
+        console.log('deleteHospital chiamata');
+        console.log('Codice da eliminare:', codice);
         fetch('php/elimina_ospedale.php', {
             method: 'POST',
             headers: {
@@ -67,12 +69,15 @@ function deleteHospital(codice, row) {
             },
             body: JSON.stringify({ codice: codice })
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('Response status:', response.status);
+            response.json();
+        })
         .then(data => {
             if (data.success) {
                 row.remove(); // Rimuove la riga dalla tabella
             } else {
-                alert('Errore durante l\'eliminazione dell\'ospedale.');
+                alert('Errore durante l\'eliminazione dell\'ospedale.' + data.message);
             }
         })
         .catch(error => console.error('Errore:', error));
