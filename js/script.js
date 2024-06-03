@@ -38,15 +38,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 cell6.appendChild(editLink);
 
 
-        let deleteLink = document.createElement('a');
+        let deleteLink = document.createElement('b');
         deleteLink.href = '#'; // Lascia il link vuoto
         deleteLink.dataset.id = item.codice; // Imposta l'ID come attributo del dataset
+        //creo le immagini del cestino
         let deleteImg = document.createElement('img');
         deleteImg.src = 'img/delete.png';
         deleteImg.alt = 'Elimina';
         deleteImg.width = 55;
         deleteImg.height = 40;
         deleteLink.appendChild(deleteImg);
+       //aggiungo un evento listener per controllare il click
         deleteLink.addEventListener('click', function(event) {
                     event.preventDefault();
                     deleteHospital(item.codice, row);
@@ -61,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function deleteHospital(codice, row) {
     if (confirm('Sei sicuro di voler eliminare questo ospedale?')) {
         console.log('deleteHospital chiamata');
-        console.log('Codice da eliminare:', codice);
+        console.log('Codice da eliminare:', row);
         fetch('php/elimina_ospedale.php', {
             method: 'POST',
             headers: {
@@ -71,16 +73,19 @@ function deleteHospital(codice, row) {
         })
         .then(response => {
             console.log('Response status:', response.status);
-            response.json();
+            return response.json();
         })
         .then(data => {
             if (data.success) {
                 row.remove(); // Rimuove la riga dalla tabella
+                location.reload();
             } else {
                 alert('Errore durante l\'eliminazione dell\'ospedale.' + data.message);
             }
         })
         .catch(error => console.error('Errore:', error));
+        alert('Eliminazione avvenuta con successo!');
+
     }
 }
 //DELETE------------------------------------------------------------------------------------------------------------

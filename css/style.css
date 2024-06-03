@@ -9,10 +9,11 @@ body {
 h2{
     text-align: center;
     text-decoration: underline;
+   
 }
 h1{
     text-align: center;
-
+    border-color: #000 !important;
 }
 /*Indico quale bottone è attualmente attivo*/
 .active{
@@ -26,6 +27,9 @@ header {
     color: white;
     border-style: solid;
     border-color: black;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+
 }
 
 .right-image {
@@ -48,7 +52,6 @@ header {
     padding: 20px;
     flex-grow: 1;
 }
-
 .left-sidebar {
     height: 100%;
     width: 100%;
@@ -57,6 +60,8 @@ header {
     padding: 20px;
     border-style: solid;
     border-color: black;
+    max-width: 250px;
+    border-radius:10px
 }
 
 .content {
@@ -80,6 +85,7 @@ header {
     flex-basis: 20%;
     border-style: solid;
     border-color: black;
+    max-width: 200px;
 }
 
 .right-navbar form {
@@ -148,11 +154,32 @@ li:last-child {
     text-align: left;
 }
 
+
+div.content table {
+    width: 100%; /* Imposta la larghezza della tabella per riempire il div */
+    border-collapse: collapse; /* Per una migliore resa visiva */
+  }
+ /*CONTENUTO DEI CONTENUTI---------------------------------------------------------------------------------*/
+  div.content {
+    max-height: 900px; /* Imposta l'altezza massima del div */
+    overflow-y: auto; /* Aggiungi una barra di scorrimento verticale se il contenuto supera l'altezza massima */
+    border: 1px solid #ccc; /* Aggiungi un bordo per una migliore visibilità */
+    padding: 10px; /* Aggiungi un po' di padding */
+    box-sizing: border-box; /* Include il bordo e il padding nell'altezza totale del div */
+    max-width: 2200px;
+  }
+
 .content th, .content td {
     padding: 12px 15px;
     border: 1px solid #ddd;
 }
+div.content table th {
+    position: sticky; /* Imposta la posizione sticky */
+    top: 0; /* Posiziona in cima al contenitore durante lo scorrimento */
+    background-color: #fdf1f9; /* Sfondo per l'intestazione */
+    z-index: 1; /* Z-index per assicurare che l'intestazione sia sopra le altre celle */
 
+}
 .content thead {
     background-color: #d63384; /* Magenta scuro */
     color: #ffffff;
@@ -184,6 +211,7 @@ li:last-child {
     color: #ffffff;
     font-weight: bold;
 }
+ /*CONTENUTO DEI CONTENUTI---------------------------------------------------------------------------------*/
 
 /* Stili per input text */
 .content input[type="text"]{

@@ -26,13 +26,12 @@ if (isset($data['codice'])) {
     // Prepara la dichiarazione per eliminare l'ospedale
     $stmt = $conn->prepare("DELETE FROM ospedale WHERE codice = ?");
     $stmt->bind_param("i", $codice);
-
+    
     if ($stmt->execute()) {
         echo json_encode(array('success' => true));
     } else {
         echo json_encode(array('success' => false, 'message' => 'Errore durante l\'eliminazione: ' . $stmt->error));
     }
-
     $stmt->close();
 } else {
     echo json_encode(array('success' => false, 'message' => 'Invalid request'));
