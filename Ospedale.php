@@ -22,24 +22,36 @@
 		&nbsp
 		&nbsp
 		&nbsp
-		<form action="/submit.php">
+		<form method="post">
 			<input type="hidden" name="source" value="Ospedale">
-			<input type="text" placeholder="Codice">
+			<input type="text" placeholder="Codice" name="codice">
 			<br>
 			<br>
-			<input type="text" placeholder="Nome">
+			<input type="text" placeholder="Nome" name="nome">
 			<br>
 			<br>
-			<input type="text" placeholder="Città">
+			<input type="text" placeholder="Città" name="citta">
 			<br>
 			<br>
-			<input type="text" placeholder="Indirizzo">
+			<input type="text" placeholder="Indirizzo" name="indirizzo">
 			<br>
 			<br>
-			<input type="text" placeholder="Direttore Sanitario">
+			<select option="required" name="taskOption" id="taskOption" class=""taskOption>
+				<option></option>
+				<?php
+					$connection = mysqli_connect('localhost', 'root', '', 'progettoweb');
+					$sql = "SELECT CSSN FROM cittadino";
+					$tendina=mysqli_query($connection,$sql);
+					while($c=mysqli_fetch_array($tendina)){
+				?>
+
+				<option value="<?php echo $c['CSSN'] ?>"> <?php echo $c['CSSN'] ?></option>
+				<?php } ?>
+				
+			</select>
 			<br>
 			<br>
-			<button type="button">Filtra</button>
+			<button type="submit" name="submit">Cerca</button>
 		</form>
 		<br>
 		<div id="editModal" class="modal">
@@ -101,6 +113,9 @@
 				<th>Modifica</th>
 				<th>Elimina</th>
 			</tr>
+					
+			<?php include 'php/filtraOspedale.php'; ?>
+			
 		</table>
 	</div>
 	<div class="right-navbar" >
@@ -117,3 +132,4 @@
     </footer>
 </body>
 </html>
+
