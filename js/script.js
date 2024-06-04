@@ -33,6 +33,27 @@ document.addEventListener("DOMContentLoaded", function() {
                 editLink.appendChild(editImg);
                 editLink.addEventListener('click', function(event) {
                     event.preventDefault();
+              //Evento per scorrere fino in fondo alla pagina---------------
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                    let testo= document.getElementById('editH2');
+                    let nome= document.getElementById('editNome');
+                    let citta= document.getElementById('editCitta');
+                    let indirizzo= document.getElementById('editIndirizzo');
+                    let direttore= document.getElementById('editDirettore');
+                    let button= document.getElementById('editButton');
+                    nome.style="display:true";
+                    citta.style="display:true";
+                    indirizzo.style="display:true";
+                    direttore.style="display:true";
+                    testo.style="display:true";
+                    button.style="display:true";
+
+              //Evento per scorrere fino in fondo alla pagina---------------
                     showEditModal(item);
                 });
                 cell6.appendChild(editLink);
@@ -107,12 +128,7 @@ function showEditModal(item) {
     span.onclick = function() {
         modal.style.display = "none";
     }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    
 }
 
 document.getElementById('editForm').addEventListener('submit', function(event) {
@@ -130,11 +146,24 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ codice: codice, nome: nome, citta: citta, indirizzo: indirizzo, direttoreSanitario: direttoreSanitario })
-    })
+    })  
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            alert("Modifica avvenuta con successo!")
             location.reload(); // Ricarica la pagina per aggiornare la tabella
+                    let testo= document.getElementById('editH2');
+                    let nome= document.getElementById('editNome');
+                    let citta= document.getElementById('editCitta');
+                    let indirizzo= document.getElementById('editIndirizzo');
+                    let direttore= document.getElementById('editDirettore');
+                    let button= document.getElementById('editButton');
+                    nome.style="display:none";
+                    citta.style="display:none";
+                    indirizzo.style="display:none";
+                    direttore.style="display:none";
+                    testo.style="display:none";
+                    button.style="display:none";
         } else {
             alert('Errore durante la modifica dell\'ospedale.');
         }
@@ -143,39 +172,34 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
 });
 //EDIT------------------------------------------------------------------------------------------------------------
 
-
+//FILTRA---------------------------------------------------------------------------------------------------------
 function filtra() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("codice");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("tabella");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    tdCodice = tr[i].getElementsByTagName("td")[0];
-    tdNome = tr[i].getElementsByTagName("td")[1];
-
-
-    if (tdCodice) {
-      txtValue = tdCodice.textContent || tdCodice.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue, count_td, column_length;
+    column_length = document.getElementById('tabella').rows[0].cells.length;
+    input = document.getElementById("codice");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabella");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 1; i < tr.length; i++) { // except first(heading) row
+      count_td = 0;
+      for(j = 1; j < column_length-1; j++){ // except first column
+          td = tr[i].getElementsByTagName("td")[j];
+          /* ADD columns here that you want you to filter to be used on */
+          if (td) {
+            if ( td.innerHTML.toUpperCase().indexOf(filter) > -1)  {            
+              count_td++;
+            }
+          }
       }
-    }
-    
-    if (tdNome) {
-      txtValue = tdNome.textContent || tdNome.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
+      if(count_td > 0){
+          tr[i].style.display = "";
       } else {
-        tr[i].style.display = "none";
-      }
-    }
+          tr[i].style.display = "none";
+ }}
   }
-}
+//FILTRA---------------------------------------------------------------------------------------------------------
 
  
