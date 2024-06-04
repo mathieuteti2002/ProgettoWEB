@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ricovero </title>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -17,33 +18,27 @@
 	<div class="left-sidebar">
 		<!-- Qui mettiamo i filtri da ricerca -->
 		<h2>Filtro Ricerca</h2>
-		&nbsp
-		&nbsp
-		&nbsp
-		<form action="/submit.php">
-			<input type="hidden" name="source" value="Ricovero">
-			<label for="fname">Data:</label><br>
-			<input type="text">
+		<form method="post">
+			<input type="text" placeholder="Cerca..." name="codice" id="ricerca" class="codice" onkeyup="filtra()">
 			<br>
 			<br>
-			<label for="fname">Durata:</label><br>
-			<input type="text">
-			<br>
-			<br>
-			<label for="fname">Motivo:</label><br>
-			<input type="text">
-			<br>
-			<br>
-			<label for="fname">Costo:</label><br>
-			<input type="text">
-			<br>
-			<br>
-			<input type="submit" value="Submit">
 		</form>
 	</div>
 	<div class="content">
-		<!-- Qui mettiamo i Contenuti/risultati -->
-		<h2>Contenuti/Risultati</h2>
+		<div class="contentRicovero">
+			<h2>Ricovero</h2>
+			<table id="tabella">
+				<tr>
+					<th>CodOspedale</th>
+					<th>Cod</th>
+					<th>Paziente</th>
+					<th>Data</th>
+					<th>Durata</th>
+					<th>Motivo</th>
+					<th>Costo</th>
+				</tr>		
+			</table>
+		</div>
 	</div>
 	<div class="right-navbar">
 		<a href="index.html"><input type="button"value="Home"></a><br><br>

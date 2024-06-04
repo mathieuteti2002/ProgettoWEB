@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cittadino </title>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -17,36 +18,28 @@
 	<div class="left-sidebar">
 		<!-- Qui mettiamo i filtri da ricerca -->
 		<h2>Filtro Ricerca</h2>
-		<form action="/submit.php">
-			<input type="hidden" name="source" value="Cittadino">
-			<label for="fname">CSSN:</label><br>
-			<input type="text">
+		<form method="post">
+			
+			<input type="text" placeholder="Cerca..." name="codice" id="ricerca" class="codice" onkeyup="filtra()">
 			<br>
 			<br>
-			<label for="fname">Nome:</label><br>
-			<input type="text">
-			<br>
-			<br>
-			<label for="fname">Cognome:</label><br>
-			<input type="text">
-			<br>
-			<br>
-			<label for="fname">Indirizzo:</label><br>
-			<input type="text">
-			<br>
-			<br>
-            <label for="fname">luogo di Nascità::</label><br>
-			<input type="text">
-            <br>
-            <br>
-            <label for="fname">Data di Nascità:</label><br>
-			<input type="text"><br><br>
-			<input type="submit" value="Submit">
 		</form>
 	</div>
 	<div class="content">
-		<!-- Qui mettiamo i Contenuti/risultati -->
-		<h2>Contenuti/Risultati</h2>
+		<div class="contentCittadino">
+			<!-- Qui mettiamo i Contenuti/risultati -->
+			<h2>Ospedale</h2>
+			<table id="tabella">
+				<tr>
+					<th>CSSN</th>
+					<th>Nome</th>
+					<th>Cognome</th>
+					<th>Data di Nascita</th>
+					<th>Luogo di Nascita</th>
+					<th>Indirizzo</th>
+				</tr>		
+			</table>
+		</div>	
 	</div>
 	<div class="right-navbar">
 		<a href="index.html"><input type="button"value="Home"></a><br><br>

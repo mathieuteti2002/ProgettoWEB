@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patologia</title>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,28 +16,26 @@
     </header>
    <div class="container">
 	<div class="left-sidebar">
-		<!-- Qui mettiamo i filtri da ricerca -->
-		<h2>Filtro Ricerca</h2>
-		<form action="/submit.php">
-			<input type="hidden" name="source" value="Patologia">
-			<label for="fname">Codice:</label><br>
-			<input type="text">
+		<form method="post">
+			<h2>Filtro Ricerca</h2>
+			
+			<input type="text" placeholder="Cerca..." name="codice" id="ricerca" class="codice" onkeyup="filtra()">
 			<br>
 			<br>
-			<label for="fname">Nome:</label><br>
-			<input type="text">
-			<br>
-			<br>
-			<label for="fname">Criticità:</label><br>
-			<input type="text">
-			<br>
-			<br>
-			<input type="submit" value="Submit">
 		</form>
 	</div>
 	<div class="content">
-		<!-- Qui mettiamo i Contenuti/risultati -->
-		<h2>Contenuti/Risultati</h2>
+		<div class="contentPatologia">
+			<!-- Qui mettiamo i Contenuti/risultati -->
+			<h2>Patologia</h2>
+			<table id="tabella">
+				<tr>
+					<th>Cod</th>
+					<th>Nome</th>
+					<th>Criticita</th>
+				</tr>		
+			</table>
+		</div>
 	</div>
 	<div class="right-navbar">
 		<a href="index.html"><input type="button"value="Home"></a><br><br>

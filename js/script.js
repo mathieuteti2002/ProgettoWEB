@@ -1,10 +1,11 @@
+//Ospedale
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Script caricato correttamente"); //per verficare sia partito il .js
 
-    fetch('./php/data.php')
+    fetch('./php/dataOspedale.php')
         .then(response => response.json())
         .then(data => {
-            let table = document.querySelector('.content table');
+            let table = document.querySelector('.contentOspedale table');
 
             data.forEach(item => {
                 let row = table.insertRow();
@@ -59,7 +60,193 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error('Errore:', error));
 });
 
+//Cittadino
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Script caricato correttamente"); //per verficare sia partito il .js
+
+    fetch('./php/dataCittadino.php')
+        .then(response => response.json())
+        .then(data => {
+            let table = document.querySelector('.contentCittadino table');
+
+            data.forEach(item => {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+                let cell5 = row.insertCell(4);
+                let cell6 = row.insertCell(5);
+
+                cell1.textContent = item.CSSN;
+                cell2.textContent = item.nome;
+                cell3.textContent = item.cognome;
+                cell4.textContent = item.dataNascita;
+                cell5.textContent = item.luogoNascita;
+                cell6.textContent = item.indirizzo;
+ 
+                let editLink = document.createElement('a');
+                editLink.href = '#'; // Lascia il link vuoto
+                editLink.dataset.id = item.CSSN; // Imposta l'ID come attributo del dataset
+                let editImg = document.createElement('img');
+                editImg.src = 'img/edit.png';
+                editImg.alt = 'Modifica';
+                editImg.width = 35;
+                editImg.height = 35;
+                editLink.appendChild(editImg);
+                editLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    showEditModal(item);
+                });
+                
+
+
+        let deleteLink = document.createElement('b');
+        deleteLink.href = '#'; // Lascia il link vuoto
+        deleteLink.dataset.id = item.CSSN; // Imposta l'ID come attributo del dataset
+        //creo le immagini del cestino
+        let deleteImg = document.createElement('img');
+        deleteImg.src = 'img/delete.png';
+        deleteImg.alt = 'Elimina';
+        deleteImg.width = 55;
+        deleteImg.height = 40;
+        deleteLink.appendChild(deleteImg);
+       //aggiungo un evento listener per controllare il click
+        deleteLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    deleteHospital(item.codice, row);
+                });
+        
+            });
+        })
+        .catch(error => console.error('Errore:', error));
+});
+
+//Ricovero
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Script caricato correttamente"); //per verficare sia partito il .js
+
+    fetch('./php/dataRicovero.php')
+        .then(response => response.json())
+        .then(data => {
+            let table = document.querySelector('.contentRicovero table');
+
+            data.forEach(item => {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+                let cell5 = row.insertCell(4);
+                let cell6 = row.insertCell(5);
+                let cell7 = row.insertCell(6);
+
+                cell1.textContent = item.codOspedale;
+                cell2.textContent = item.cod;
+                cell3.textContent = item.paziente;
+                cell4.textContent = item.data;
+                cell5.textContent = item.durata;
+                cell6.textContent = item.motivo;
+                cell7.textContent = item.costo;
+ 
+                let editLink = document.createElement('a');
+                editLink.href = '#'; // Lascia il link vuoto
+                editLink.dataset.id = item.cod; // Imposta l'ID come attributo del dataset
+                let editImg = document.createElement('img');
+                editImg.src = 'img/edit.png';
+                editImg.alt = 'Modifica';
+                editImg.width = 35;
+                editImg.height = 35;
+                editLink.appendChild(editImg);
+                editLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    showEditModal(item);
+                });
+               
+
+
+        let deleteLink = document.createElement('b');
+        deleteLink.href = '#'; // Lascia il link vuoto
+        deleteLink.dataset.id = item.cod; // Imposta l'ID come attributo del dataset
+        //creo le immagini del cestino
+        let deleteImg = document.createElement('img');
+        deleteImg.src = 'img/delete.png';
+        deleteImg.alt = 'Elimina';
+        deleteImg.width = 55;
+        deleteImg.height = 40;
+        deleteLink.appendChild(deleteImg);
+       //aggiungo un evento listener per controllare il click
+        deleteLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    deleteHospital(item.codice, row);
+                });
+        
+            });
+        })
+        .catch(error => console.error('Errore:', error));
+});
+
+
+//Patologia
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Script caricato correttamente"); //per verficare sia partito il .js
+
+    fetch('./php/dataPatologia.php')
+        .then(response => response.json())
+        .then(data => {
+            let table = document.querySelector('.contentPatologia table');
+
+            data.forEach(item => {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+
+                cell1.textContent = item.cod;
+                cell2.textContent = item.nome;
+                cell3.textContent = item.criticita;
+
+
+                let editLink = document.createElement('a');
+                editLink.href = '#'; // Lascia il link vuoto
+                editLink.dataset.id = item.cod; // Imposta l'ID come attributo del dataset
+                let editImg = document.createElement('img');
+                editImg.src = 'img/edit.png';
+                editImg.alt = 'Modifica';
+                editImg.width = 35;
+                editImg.height = 35;
+                editLink.appendChild(editImg);
+                editLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    showEditModal(item);
+                });
+                
+
+
+        let deleteLink = document.createElement('b');
+        deleteLink.href = '#'; // Lascia il link vuoto
+        deleteLink.dataset.id = item.cod; // Imposta l'ID come attributo del dataset
+        //creo le immagini del cestino
+        let deleteImg = document.createElement('img');
+        deleteImg.src = 'img/delete.png';
+        deleteImg.alt = 'Elimina';
+        deleteImg.width = 55;
+        deleteImg.height = 40;
+        deleteLink.appendChild(deleteImg);
+       //aggiungo un evento listener per controllare il click
+        deleteLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    deleteHospital(item.codice, row);
+                });
+        
+            });
+        })
+        .catch(error => console.error('Errore:', error));
+});
+
+
 //DELETE------------------------------------------------------------------------------------------------------------
+//Ospedale
 function deleteHospital(codice, row) {
     if (confirm('Sei sicuro di voler eliminare questo ospedale?')) {
         console.log('deleteHospital chiamata');
@@ -88,6 +275,7 @@ function deleteHospital(codice, row) {
 
     }
 }
+
 //DELETE------------------------------------------------------------------------------------------------------------
 
 
@@ -143,39 +331,41 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
 });
 //EDIT------------------------------------------------------------------------------------------------------------
 
+//FILTRA----------------------------------------------------------------------------------------------------------
 
+//filtra Ospedale
 function filtra() {
   // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("codice");
+  var input, filter, table, tr, td, i, txtValue, count_td, column_length;
+  column_length = document.getElementById('tabella').rows[0].cells.length;
+  input = document.getElementById("ricerca");
   filter = input.value.toUpperCase();
   table = document.getElementById("tabella");
   tr = table.getElementsByTagName("tr");
 
   // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    tdCodice = tr[i].getElementsByTagName("td")[0];
-    tdNome = tr[i].getElementsByTagName("td")[1];
-
-
-    if (tdCodice) {
-      txtValue = tdCodice.textContent || tdCodice.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
+  for (i = 1; i < tr.length; i++) { // except first(heading) row
+    count_td = 0;
+    for(j = 0; j < column_length; j++){ // except first column
+        td = tr[i].getElementsByTagName("td")[j];
+        /* ADD columns here that you want you to filter to be used on */
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1)  {            
+            count_td++;
+          }
+        }
     }
-    
-    if (tdNome) {
-      txtValue = tdNome.textContent || tdNome.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    if(count_td > 0){
         tr[i].style.display = "";
-      } else {
+    } else {
         tr[i].style.display = "none";
-      }
     }
-  }
+  } 
 }
 
+//filtra ricovero
+
+//filtra patologia
+
+//FILTRA----------------------------------------------------------------------------------------------------------
  

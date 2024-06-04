@@ -24,7 +24,7 @@
 		&nbsp
 		<form method="post">
 			<input type="hidden" name="source" value="Ospedale">
-			<input type="text" placeholder="Codice" name="codice" id="codice" class="codice" onkeyup="filtra()">
+			<input type="text" placeholder="Cerca..." name="codice" id="ricerca" class="codice" onkeyup="filtra()">
 			<br>
 			<br>
 			<!--
@@ -103,6 +103,7 @@
 		</form>
 	</div>
 	<div class="content">
+	<div class="contentOspedale">
 		<!-- Qui mettiamo i Contenuti/risultati -->
 		<h2>Ospedale</h2>
 		<table id="tabella">
@@ -116,6 +117,7 @@
 				<th>Elimina</th>
 			</tr>		
 		</table>
+	</div>
 	</div>
 	<div class="right-navbar" >
 		<a href="index.html" ><input type="button" value="Home"></a><br><br>
