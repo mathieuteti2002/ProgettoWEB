@@ -27,33 +27,6 @@
 			<input type="text" placeholder="Cerca..." name="codice" id="ricerca" class="codice" onkeyup="filtra()">
 			<br>
 			<br>
-			<!--
-			<input type="text" placeholder="Nome" name="nome">
-			<br>
-			<br>
-			<input type="text" placeholder="Città" name="citta">
-			<br>
-			<br>
-			<input type="text" placeholder="Indirizzo" name="indirizzo">
-			<br>
-			<br>
-			<select option="required" name="taskOption" id="taskOption" class=""taskOption>
-				<option></option>
-				<?php
-					$connection = mysqli_connect('localhost', 'root', '', 'progettoweb');
-					$sql = "SELECT CSSN FROM cittadino";
-					$tendina=mysqli_query($connection,$sql);
-					while($c=mysqli_fetch_array($tendina)){
-				?>
-
-				<option value="<?php echo $c['CSSN'] ?>"> <?php echo $c['CSSN'] ?></option>
-				<?php } ?>
-				
-			</select>
-			<br>
-			<br>
-			<button onclick=""handleButtonClick(this)" type="submit" name="filtra" id="filtra">Cerca</button>
-		-->
 		</form>
 		<br>
 		<div id="editModal" class="modal">
