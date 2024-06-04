@@ -6,6 +6,9 @@ body {
     padding: 0;
     background-color: rgb(232, 205, 232);
 }
+input [type="text"]
+{margin-top: 2000px;
+margin-bottom: 2000px;}
 h2{
     text-align: center;
     text-decoration: underline;
@@ -17,11 +20,14 @@ h1{
 }
 /*Indico quale bottone è attualmente attivo*/
 .active{
-    background-color: rgb(0, 0, 0) !important; 
+    background-color: rgb(0, 0, 0) !important;
+    
+    
 }
 
+
 header {
-    background-color: rgb(241, 136, 241);
+    background-color: rgb(249, 71, 249);
     text-align: center;
     padding: 20px;
     color: white;
@@ -56,7 +62,7 @@ header {
     height: 100%;
     width: 100%;
     flex-basis: 20%;
-    background-color: #eaeaea;
+    background-color: rgb(253, 109, 253);
     padding: 20px;
     border-style: solid;
     border-color: black;
@@ -70,11 +76,12 @@ header {
     padding: 20px;
     border-style: solid;
     border-color: black;
+    
 }
 
 /* Aggiungi stile al menu di navigazione */
 .right-navbar {
-    background-color: #f4f4f4;
+    background-color: rgb(253, 109, 253);
     padding: 20px;
     border-radius: 10px;
     flex-direction: column;
@@ -97,9 +104,9 @@ header {
 }
 
 .right-navbar input[type="button"] {
-    background-color: #d0a2ce;
+    background-color: #ffffff;
     /* Colore di sfondo */
-    color: white;
+    color: rgb(0, 0, 0);
     /* Colore del testo */
     padding: 10px 20px;
     /* Spaziatura interna */
@@ -113,10 +120,14 @@ header {
     /* Dimensione del testo */
     width: 100%;
     /* Fai sì che il bottone occupi l'intera larghezza */
+    flex-basis: 20%;
+    border-style:solid;
+    border-color: black;
+    max-width: 200px;
 }
 
 .right-navbar input[type="button"]:hover {
-    background-color: #76075c;
+    background-color: #eeb0df;
     /* Cambia colore al passaggio del mouse */
 }
 .right-navbar input[type="button"]:visited {
@@ -183,19 +194,24 @@ div.content table th {
 .content thead {
     background-color: #d63384; /* Magenta scuro */
     color: #ffffff;
+    
 }
 
 .content tbody tr {
     background-color: #fdf1f9; /* Magenta molto chiaro */
     border-bottom: 1px solid #ddd;
+    
 }
 
 .content tbody tr:nth-of-type(even) {
     background-color: #fbe4f2; /* Magenta chiaro */
+    
+    
 }
 
 .content tbody tr:hover {
     background-color: #f1cfe2; /* Magenta più scuro al passaggio del mouse */
+    
 }
 
 .content tbody td {
