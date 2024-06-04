@@ -62,6 +62,7 @@
 				</div>
 			</div>
 			<br>
+<<<<<<< Updated upstream
 			<h2>Aggiungi Ospedale:</h2>
 			&nbsp
 			&nbsp
@@ -78,12 +79,35 @@
 				<br>
 				<select option="required" name="taskOption" id="taskOption" class="" taskOption>
 					<?php
+=======
+			<br>
+			<button type="submit" name="submit">Cerca</button>
+		</form>
+		<br>
+		<h2>Aggiungi Ospedale:</h2>
+		&nbsp
+		&nbsp
+		&nbsp
+		<form action="php\aggiungi_ospedale.php" method="post">
+			<input type="text" placeholder="Nome" name="nome" id="nome" class="nome">
+			<br>
+			<br>
+			<input type="text" placeholder="Città" name="citta" id="citta" class="citta">
+			<br>
+			<br>
+			<input type="text" placeholder="Indirizzo" name="indirizzo" id="indirizzo" class="indirizzo">
+			<br>
+			<br>
+			<select option="required" name="taskOption" id="taskOption" class=""taskOption>
+				<?php
+>>>>>>> Stashed changes
 					$connection = mysqli_connect('localhost', 'root', '', 'progettoweb');
 					$sql = "SELECT CSSN FROM cittadino";
 					$tendina = mysqli_query($connection, $sql);
 					while ($c = mysqli_fetch_array($tendina)) {
 					?>
 
+<<<<<<< Updated upstream
 						<option value="<?php echo $c['CSSN'] ?>"> <?php echo $c['CSSN'] ?></option>
 					<?php } ?>
 
@@ -115,6 +139,33 @@
 			<a href="Ricovero.html"><input type="button" value="Ricovero"></a><br><br>
 			<a href="Patologia.html"><input type="button" value="Patologia"></a><br><br>
 		</div>
+=======
+				<option value="<?php echo $c['CSSN'] ?>"> <?php echo $c['CSSN'] ?></option>
+				<?php } ?>
+				
+			</select>
+			<br>
+			<br>
+			<button type="submit" name="invia">Aggiungi nuovo Ospedale</button>
+		</form>
+		<br>
+		<div id="editModal" class="modal">
+    <div class="modal-content">
+        
+        <h2>Modifica Ospedale</h2>
+        <form id="editForm">
+            <input type="hidden" id="editCodice">
+            <input type="text" placeholder="Nome" id="editNome" name="nome"><br><br>
+            <input type="text" placeholder="Città" id="editCitta" name="citta"><br><br>
+            <input type="text" placeholder="Indirizzo" id="editIndirizzo" name="indirizzo"><br><br>
+            <input type="text" placeholder="Direttore Sanitario" id="editDirettore" name="direttoreSanitario" ><br><br>
+            <button type="submit">Salva</button>
+        </form>
+    </div>
+</div>
+		<br>
+		
+>>>>>>> Stashed changes
 	</div>
 	</div>
 	<footer>
