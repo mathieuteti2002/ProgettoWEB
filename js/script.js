@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let cell3 = row.insertCell(2);
                 let cell4 = row.insertCell(3);
                 let cell5 = row.insertCell(4);
+               
                 let cell6 = row.insertCell(5);
                 let cell7 = row.insertCell(6);
 
