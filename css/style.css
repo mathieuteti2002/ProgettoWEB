@@ -214,7 +214,7 @@ div.content table th {
  /*CONTENUTO DEI CONTENUTI---------------------------------------------------------------------------------*/
 
 /* Stili per input text */
-.content input[type="text"]{
+.contentOspedale .contentCittadino .contentRicovero .contentPatologia,  input[type="text"]{
     width: 100%;
     padding: 10px 15px;
     margin: 10px 0;
@@ -226,13 +226,13 @@ div.content table th {
     font-size: 16px;
 }
 
-content input[type="text"]:focus {
+.contentOspedale .contentCittadino .contentRicovero .contentPatologia, input[type="text"]:focus {
     border-color: #d63384; /* Magenta scuro */
     outline: none;
 }
 
 /* Stili per button submit */
-.content button[type="submit"] {
+.contentOspedale .contentCittadino .contentRicovero .contentPatologia,  button[type="submit"] {
     background-color: #d63384; /* Magenta scuro */
     color: #ffffff;
     padding: 10px 20px;
@@ -243,12 +243,12 @@ content input[type="text"]:focus {
     margin: 10px 0;
 }
 
-.content button[type="submit"]:hover {
+.contentOspedale .contentCittadino .contentRicovero .contentPatologia,  button[type="submit"]:hover {
     background-color: #b82a6e; /* Magenta più scuro */
 }
 
 /* Stili per select */
-.content select {
+.contentOspedale .contentCittadino .contentRicovero .contentPatologia, select {
     width: 100%;
     padding: 10px 15px;
     margin: 10px 0;
@@ -260,7 +260,7 @@ content input[type="text"]:focus {
     font-size: 16px;
 }
 
-.content select:focus {
+.contentOspedale .contentCittadino .contentRicovero .contentPatologia,  select:focus {
     border-color: #d63384; /* Magenta scuro */
     outline: none;
 }

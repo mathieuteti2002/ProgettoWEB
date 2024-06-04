@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 let cell3 = row.insertCell(2);
                 let cell4 = row.insertCell(3);
                 let cell5 = row.insertCell(4);
-               
                 let cell6 = row.insertCell(5);
                 let cell7 = row.insertCell(6);
 
@@ -143,3 +142,40 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
     .catch(error => console.error('Errore:', error));
 });
 //EDIT------------------------------------------------------------------------------------------------------------
+
+
+function filtra() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("codice");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tabella");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    tdCodice = tr[i].getElementsByTagName("td")[0];
+    tdNome = tr[i].getElementsByTagName("td")[1];
+
+
+    if (tdCodice) {
+      txtValue = tdCodice.textContent || tdCodice.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+    
+    if (tdNome) {
+      txtValue = tdNome.textContent || tdNome.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+ 

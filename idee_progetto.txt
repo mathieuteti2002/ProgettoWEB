@@ -1,0 +1,23 @@
+1)App di Playlist Personalizzate:
+
+Consentire agli utenti di creare playlist personalizzate di talk TEDx utilizzando i dati forniti nei file CSV.
+Gli utenti possono aggiungere talk alla loro playlist, riorganizzarli e condividerli con altri utenti dell'app.
+Implementare funzionalità di suggerimento automatico per consigliare ai utenti talk correlati in base ai loro interessi.
+
+2)App di Analisi dei Dati TEDx:
+
+Crea un'app che fornisce analisi dettagliate sui talk TEDx utilizzando i dati forniti nei file CSV.
+Visualizza statistiche come il numero medio di visualizzazioni per talk, la distribuzione degli argomenti più popolari, e altro ancora.
+Consentire agli utenti di esplorare i trend nel tempo e di confrontare le prestazioni dei talk basandosi su diverse metriche.
+
+3)App di Localizzazione dei Talk TEDx:
+
+Utilizza i dati sui talk e i relatori per creare una mappa interattiva che mostra la posizione geografica dei vari eventi TEDx in tutto il mondo.
+Gli utenti possono cercare eventi TEDx vicino a loro, visualizzare dettagli sugli eventi e ottenere indicazioni per raggiungere il luogo dell'evento.
+Implementa funzionalità per scoprire eventi passati e futuri, con informazioni sui relatori e i talk previsti per ciascun evento.
+
+4)App di Apprendimento Guidato:
+
+Crea un'app che guida gli utenti attraverso una serie di talk TEDx selezionati per un particolare argomento o tema.
+Utilizza i dati forniti nei file CSV per creare percorsi di apprendimento personalizzati, che aiutano gli utenti a esplorare un argomento in profondità attraverso una selezione curata di talk correlati.
+Offri quiz o esercizi interattivi basati sui talk per aiutare gli utenti a consolidare le loro conoscenze.
