@@ -70,6 +70,7 @@ header {
     padding: 20px;
     border-style: solid;
     border-color: black;
+    border-radius: 20px;
 }
 
 /* Aggiungi stile al menu di navigazione */

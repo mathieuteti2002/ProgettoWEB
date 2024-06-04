@@ -19,45 +19,16 @@
 	<div class="left-sidebar">
 		<!-- Qui mettiamo i filtri da ricerca -->
 		<h2>Filtro Ricerca</h2>
-		&nbsp
-		&nbsp
-		&nbsp
+		
 		<form method="post">
 			<input type="hidden" name="source" value="Ospedale">
-			<input type="text" placeholder="Cerca..." name="codice" id="ricerca" class="codice" onkeyup="filtra()">
-			<br>
-			<br>
+			<input type="text" placeholder="Scrivi di tutto" name="codice" id="ricerca" class="codice" onkeyup="filtra()">
 		</form>
-		<br>
-		<div id="editModal" class="modal">
-    <div class="modal-content">
-        
-        <h2>Modifica Ospedale</h2>
-        <form id="editForm">
-            <input type="hidden" id="editCodice">
-            <input type="text" placeholder="Nome" id="editNome" name="nome"><br><br>
-            <input type="text" placeholder="Città" id="editCitta" name="citta"><br><br>
-            <input type="text" placeholder="Indirizzo" id="editIndirizzo" name="indirizzo"><br><br>
-            <input type="text" placeholder="Direttore Sanitario" id="editDirettore" name="direttoreSanitario" ><br><br>
-            <button type="submit">Salva</button>
-        </form>
-    </div>
-</div>
-		<br>
 		<h2>Aggiungi Ospedale:</h2>
-		&nbsp
-		&nbsp
-		&nbsp
 		<form action="php\aggiungi_ospedale.php" method="post">
 			<input type="text" placeholder="Nome" name="nome" id="nome" class="nome">
-			<br>
-			<br>
 			<input type="text" placeholder="Città" name="citta" id="citta" class="citta">
-			<br>
-			<br>
 			<input type="text" placeholder="Indirizzo" name="indirizzo" id="indirizzo" class="indirizzo">
-			<br>
-			<br>
 			<select option="required" name="taskOption" id="taskOption" class=""taskOption>
 				<?php
 					$connection = mysqli_connect('localhost', 'root', '', 'progettoweb');
@@ -70,10 +41,24 @@
 				<?php } ?>
 				
 			</select>
-			<br>
-			<br>
 			<button type="submit" name="invia">Aggiungi nuovo Ospedale</button>
 		</form>
+		<div id="editModal" class="modal">
+    <div class="modal-content">
+	<br>
+        <h2 style="display:none" id="editH2">Modifica Ospedale</h2>
+        <form id="editForm">
+            <input type="hidden" id="editCodice">
+            <input type="text" style="display:none" placeholder="Nome" id="editNome" name="nome">
+            <input type="text" style="display:none" placeholder="Città" id="editCitta" name="citta">
+            <input type="text" style="display:none" placeholder="Indirizzo" id="editIndirizzo" name="indirizzo">
+            <input type="text" style="display:none" placeholder="Direttore Sanitario" id="editDirettore" name="direttoreSanitario" >
+            <button type="submit" style="display:none" id="editButton">Salva</button>
+        </form>
+    </div>
+</div>
+		<br>
+		
 	</div>
 	<div class="content">
 	<div class="contentOspedale">

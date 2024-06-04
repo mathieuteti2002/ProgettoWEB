@@ -34,6 +34,27 @@ document.addEventListener("DOMContentLoaded", function() {
                 editLink.appendChild(editImg);
                 editLink.addEventListener('click', function(event) {
                     event.preventDefault();
+              //Evento per scorrere fino in fondo alla pagina---------------
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                    let testo= document.getElementById('editH2');
+                    let nome= document.getElementById('editNome');
+                    let citta= document.getElementById('editCitta');
+                    let indirizzo= document.getElementById('editIndirizzo');
+                    let direttore= document.getElementById('editDirettore');
+                    let button= document.getElementById('editButton');
+                    nome.style="display:true";
+                    citta.style="display:true";
+                    indirizzo.style="display:true";
+                    direttore.style="display:true";
+                    testo.style="display:true";
+                    button.style="display:true";
+
+              //Evento per scorrere fino in fondo alla pagina---------------
                     showEditModal(item);
                 });
                 cell6.appendChild(editLink);
@@ -295,12 +316,7 @@ function showEditModal(item) {
     span.onclick = function() {
         modal.style.display = "none";
     }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    
 }
 
 document.getElementById('editForm').addEventListener('submit', function(event) {
@@ -318,11 +334,24 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ codice: codice, nome: nome, citta: citta, indirizzo: indirizzo, direttoreSanitario: direttoreSanitario })
-    })
+    })  
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            alert("Modifica avvenuta con successo!")
             location.reload(); // Ricarica la pagina per aggiornare la tabella
+                    let testo= document.getElementById('editH2');
+                    let nome= document.getElementById('editNome');
+                    let citta= document.getElementById('editCitta');
+                    let indirizzo= document.getElementById('editIndirizzo');
+                    let direttore= document.getElementById('editDirettore');
+                    let button= document.getElementById('editButton');
+                    nome.style="display:none";
+                    citta.style="display:none";
+                    indirizzo.style="display:none";
+                    direttore.style="display:none";
+                    testo.style="display:none";
+                    button.style="display:none";
         } else {
             alert('Errore durante la modifica dell\'ospedale.');
         }
@@ -330,6 +359,7 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
     .catch(error => console.error('Errore:', error));
 });
 //EDIT------------------------------------------------------------------------------------------------------------
+
 
 //FILTRA----------------------------------------------------------------------------------------------------------
 
@@ -362,6 +392,7 @@ function filtra() {
     }
   } 
 }
+
 
 //filtra ricovero
 
