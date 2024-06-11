@@ -20,6 +20,18 @@ h1{
     background-color: rgb(0, 0, 0) !important; 
 }
 
+/*----------------------ALLINEO I BUTTON EDIT---------------------------------------------*/
+#modal{
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Distribute buttons evenly */
+  }
+  #modal-content, #refreshButton {
+    /* Style the buttons here (optional) */
+    display: inline-block; /* Make buttons behave like inline elements */
+  }
+/*----------------------ALLINEO I BUTTON EDIT---------------------------------------------*/
+
+
 header {
     background-color: rgb(241, 136, 241);
     text-align: center;

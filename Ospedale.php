@@ -41,9 +41,9 @@
 				<?php } ?>
 				
 			</select>
-			<button type="submit" name="invia">Aggiungi nuovo Ospedale</button>
+			<button type="submit" name="invia" title="Aggiungi questo ospedale">Aggiungi nuovo Ospedale</button>
 		</form>
-		<div id="editModal" class="modal">
+	<div id="editModal" class="modal">
     <div class="modal-content">
 	<br>
         <h2 style="display:none" id="editH2">Modifica Ospedale</h2>
@@ -53,11 +53,11 @@
             <input type="text" style="display:none" placeholder="Città" id="editCitta" name="citta">
             <input type="text" style="display:none" placeholder="Indirizzo" id="editIndirizzo" name="indirizzo">
             <input type="text" style="display:none" placeholder="Direttore Sanitario" id="editDirettore" name="direttoreSanitario" >
-            <button type="submit" style="display:none" id="editButton">Salva</button>
+            <button type="submit" style="display:none" id="editButton" title="Salva modifiche">Salva</button>
         </form>
+		<button type="submit" style="display:none" id="refreshButton" title="Annulla modifiche">Annulla</button>
     </div>
 </div>
-		<br>
 		
 	</div>
 	<div class="content">

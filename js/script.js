@@ -21,8 +21,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 cell2.textContent = item.nome;
                 cell3.textContent = item.citta;
                 cell4.textContent = item.indirizzo;
-                cell5.textContent = item.direttoreSanitario;
- 
+                //cell5.textContent = item.direttoreSanitario;
+                let link = document.createElement('a');
+                link.textContent = item.direttoreSanitario; 
+                link.href = "Ospedale_direttore.html"; 
+                cell5.appendChild(link);
+
+
                 let editLink = document.createElement('a');
                 editLink.href = '#'; // Lascia il link vuoto
                 editLink.dataset.id = item.codice; // Imposta l'ID come attributo del dataset
@@ -31,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 editImg.alt = 'Modifica';
                 editImg.width = 35;
                 editImg.height = 35;
+                editImg.title="Modifica questo ospedale";
                 editLink.appendChild(editImg);
                 editLink.addEventListener('click', function(event) {
                     event.preventDefault();
@@ -47,12 +53,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     let indirizzo= document.getElementById('editIndirizzo');
                     let direttore= document.getElementById('editDirettore');
                     let button= document.getElementById('editButton');
+                    let btn_refresh= document.getElementById('refreshButton');
+
                     nome.style="display:true";
                     citta.style="display:true";
                     indirizzo.style="display:true";
                     direttore.style="display:true";
                     testo.style="display:true";
                     button.style="display:true";
+                    btn_refresh.style="display:true";
 
               //Evento per scorrere fino in fondo alla pagina---------------
                     showEditModal(item);
@@ -60,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 cell6.appendChild(editLink);
 
 
-        let deleteLink = document.createElement('b');
+        let deleteLink = document.createElement('a');
         deleteLink.href = '#'; // Lascia il link vuoto
         deleteLink.dataset.id = item.codice; // Imposta l'ID come attributo del dataset
         //creo le immagini del cestino
@@ -69,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
         deleteImg.alt = 'Elimina';
         deleteImg.width = 55;
         deleteImg.height = 40;
+        deleteImg.title="Elimina questo ospedale";
         deleteLink.appendChild(deleteImg);
        //aggiungo un evento listener per controllare il click
         deleteLink.addEventListener('click', function(event) {
@@ -80,6 +90,9 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Errore:', error));
 });
+//----------------------------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------------------------------
 
 //Cittadino
 document.addEventListener("DOMContentLoaded", function() {
@@ -318,6 +331,10 @@ function showEditModal(item) {
     }
     
 }
+document.getElementById('refreshButton').addEventListener('click', function(event) {
+    location.reload(); // Ricarica la pagina per aggiornare la tabella
+});
+
 
 document.getElementById('editForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -346,12 +363,14 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
                     let indirizzo= document.getElementById('editIndirizzo');
                     let direttore= document.getElementById('editDirettore');
                     let button= document.getElementById('editButton');
+                    let btn_refresh=document.getElementById('refreshButton');
                     nome.style="display:none";
                     citta.style="display:none";
                     indirizzo.style="display:none";
                     direttore.style="display:none";
                     testo.style="display:none";
                     button.style="display:none";
+                    btn_refresh.style="display:none";
         } else {
             alert('Errore durante la modifica dell\'ospedale.');
         }
