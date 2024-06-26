@@ -277,3 +277,16 @@ div.content table th {
     border-color: #d63384; /* Magenta scuro */
     outline: none;
 }
+
+.button-container {
+    display: flex;
+    gap: 75px;
+}
+
+.buttonRefresh {
+    margin-right: 10px; /* Margine tra i bottoni (opzionale) */
+}
+
+.editButton{
+    margin-right: 10px; /* Margine tra i bottoni (opzionale) */
+}
