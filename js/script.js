@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 cell2.textContent = item.nome;
                 cell3.textContent = item.citta;
                 cell4.textContent = item.indirizzo;
-                //cell5.textContent = item.direttoreSanitario;
+                cell5.textContent = item.direttoreSanitario;
                 let link = document.createElement('a');
                 link.textContent = item.direttoreSanitario; 
                 link.href = "Ospedale_direttore.php?CSSN=" + encodeURIComponent(item.direttoreSanitario);
@@ -286,7 +286,8 @@ function showEditModal(item) {
     document.getElementById('editNome').value = item.nome;
     document.getElementById('editCitta').value = item.citta;
     document.getElementById('editIndirizzo').value = item.indirizzo;
-    document.getElementById('editDirettore').value = item.direttoreSanitario;
+    //document.getElementById('editDirettore').value = item.direttoreSanitario;
+    //document.getElementById('editDirettoreOption').value = item.direttoreSanitario;
 
     let span = document.getElementsByClassName("close")[0];
     span.onclick = function() {
@@ -379,6 +380,3 @@ function filtra() {
 //filtra ricovero
 
 //filtra patologia
-
-//FILTRA----------------------------------------------------------------------------------------------------------
- 
