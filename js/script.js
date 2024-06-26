@@ -24,10 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 //cell5.textContent = item.direttoreSanitario;
                 let link = document.createElement('a');
                 link.textContent = item.direttoreSanitario; 
-                link.href = "Ospedale_direttore.html"; 
+                link.href = "Ospedale_direttore.php?CSSN=" + encodeURIComponent(item.direttoreSanitario);
                 cell5.appendChild(link);
+//--------------------------------------------------------------------------------------------------------------------
+//LAMPEGGIO DELLA FORM EDIT-------------------------------------------------------------------------------------------------
 
-
+//------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------
                 let editLink = document.createElement('a');
                 editLink.href = '#'; // Lascia il link vuoto
                 editLink.dataset.id = item.codice; // Imposta l'ID come attributo del dataset
@@ -41,13 +44,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 editLink.addEventListener('click', function(event) {
                     event.preventDefault();
               //Evento per scorrere fino in fondo alla pagina---------------
-                    window.onclick = function(event) {
+               /*     window.onclick = function(event) {
                         if (event.target == modal) {
                             modal.style.display = "none";
                         }
                     }
                     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                    let testo= document.getElementById('editH2');
+              */      let testo= document.getElementById('editH2');
                     let nome= document.getElementById('editNome');
                     let citta= document.getElementById('editCitta');
                     let indirizzo= document.getElementById('editIndirizzo');
@@ -67,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     showEditModal(item);
                 });
                 cell6.appendChild(editLink);
-
 
         let deleteLink = document.createElement('a');
         deleteLink.href = '#'; // Lascia il link vuoto
@@ -91,7 +93,34 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error('Errore:', error));
 });
 //----------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('./php/dataDirettore.php')
+        .then(response =>  response.json()
+         )
+        .then(data => {    
+            let table = document.querySelector('.contentDirettore table'); //console.log(table);           
+            // Inserimento dei dati nella tabella
+            data.forEach(item => {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+                let cell5 = row.insertCell(4);
+                cell1.textContent = item.codice;
+                cell2.textContent = item.nome;
+                cell3.textContent = item.citta;
+                cell4.textContent = item.indirizzo;
+                cell5.textContent = item.direttoreSanitario;
+            });             
 
+        })
+        .catch(error => console.error('Errore:', error));           
+
+});
+
+//----------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
 //Cittadino
@@ -182,39 +211,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 cell5.textContent = item.durata;
                 cell6.textContent = item.motivo;
                 cell7.textContent = item.costo;
- 
-                let editLink = document.createElement('a');
-                editLink.href = '#'; // Lascia il link vuoto
-                editLink.dataset.id = item.cod; // Imposta l'ID come attributo del dataset
-                let editImg = document.createElement('img');
-                editImg.src = 'img/edit.png';
-                editImg.alt = 'Modifica';
-                editImg.width = 35;
-                editImg.height = 35;
-                editLink.appendChild(editImg);
-                editLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    showEditModal(item);
-                });
-               
-
-
-        let deleteLink = document.createElement('b');
-        deleteLink.href = '#'; // Lascia il link vuoto
-        deleteLink.dataset.id = item.cod; // Imposta l'ID come attributo del dataset
-        //creo le immagini del cestino
-        let deleteImg = document.createElement('img');
-        deleteImg.src = 'img/delete.png';
-        deleteImg.alt = 'Elimina';
-        deleteImg.width = 55;
-        deleteImg.height = 40;
-        deleteLink.appendChild(deleteImg);
-       //aggiungo un evento listener per controllare il click
-        deleteLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    deleteHospital(item.codice, row);
-                });
-        
             });
         })
         .catch(error => console.error('Errore:', error));
@@ -224,7 +220,6 @@ document.addEventListener("DOMContentLoaded", function() {
 //Patologia
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Script caricato correttamente"); //per verficare sia partito il .js
-
     fetch('./php/dataPatologia.php')
         .then(response => response.json())
         .then(data => {
@@ -241,38 +236,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 cell3.textContent = item.criticita;
 
 
-                let editLink = document.createElement('a');
-                editLink.href = '#'; // Lascia il link vuoto
-                editLink.dataset.id = item.cod; // Imposta l'ID come attributo del dataset
-                let editImg = document.createElement('img');
-                editImg.src = 'img/edit.png';
-                editImg.alt = 'Modifica';
-                editImg.width = 35;
-                editImg.height = 35;
-                editLink.appendChild(editImg);
-                editLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    showEditModal(item);
-                });
-                
-
-
-        let deleteLink = document.createElement('b');
-        deleteLink.href = '#'; // Lascia il link vuoto
-        deleteLink.dataset.id = item.cod; // Imposta l'ID come attributo del dataset
-        //creo le immagini del cestino
-        let deleteImg = document.createElement('img');
-        deleteImg.src = 'img/delete.png';
-        deleteImg.alt = 'Elimina';
-        deleteImg.width = 55;
-        deleteImg.height = 40;
-        deleteLink.appendChild(deleteImg);
-       //aggiungo un evento listener per controllare il click
-        deleteLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    deleteHospital(item.codice, row);
-                });
-        
             });
         })
         .catch(error => console.error('Errore:', error));

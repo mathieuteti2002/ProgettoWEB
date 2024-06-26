@@ -11,6 +11,39 @@ h2{
     text-decoration: underline;
    
 }
+h3{
+    text-align: center;
+    text-decoration: underline;
+    color: magenta;
+}
+
+
+
+.modal {
+    display: none; /* Assicura che la modal non sia visibile inizialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    z-index: 1000; /* Assicura che la modal sia sopra tutti gli altri elementi */
+    width: 300px; /* Larghezza desiderata */
+    border-radius: 20px;
+    width: 410px; /* Aumenta la larghezza della modal */
+    padding: 100%; 
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
 h1{
     text-align: center;
     border-color: #000 !important;

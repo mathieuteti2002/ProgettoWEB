@@ -22,32 +22,33 @@
 		
 		<form method="post">
 			<input type="hidden" name="source" value="Ospedale">
-			<input type="text" placeholder="Scrivi di tutto" name="codice" id="ricerca" class="codice" onkeyup="filtra()">
+			<input type="text" placeholder="Cerca..." name="codice" id="ricerca" class="codice" onkeyup="filtra()">
 		</form>
 		<h2>Aggiungi Ospedale:</h2>
-		<form action="php\aggiungi_ospedale.php" method="post">
+		<form action="php\aggiungi_ospedale.php" onsubmit="Controllo()" method="post">
 			<input type="text" placeholder="Nome" name="nome" id="nome" class="nome">
 			<input type="text" placeholder="Città" name="citta" id="citta" class="citta">
 			<input type="text" placeholder="Indirizzo" name="indirizzo" id="indirizzo" class="indirizzo">
-			<select option="required" name="taskOption" id="taskOption" class=""taskOption>
+			<select option="required" name="taskOption" id="taskOption" class=""taskOption >
+			<optgroup label="Direttore Sanitario">	
 				<?php
 					$connection = mysqli_connect('localhost', 'root', '', 'progettoweb');
-					$sql = "SELECT CSSN FROM cittadino";
+					$sql = "SELECT CSSN FROM cittadino WHERE CSSN not in(SELECT direttoreSanitario FROM ospedale)";
 					$tendina=mysqli_query($connection,$sql);
 					while($c=mysqli_fetch_array($tendina)){
 				?>
 
 				<option value="<?php echo $c['CSSN'] ?>"> <?php echo $c['CSSN'] ?></option>
 				<?php } ?>
-				
+			</optgroup>
 			</select>
 			<button type="submit" name="invia" title="Aggiungi questo ospedale">Aggiungi nuovo Ospedale</button>
 		</form>
 	<div id="editModal" class="modal">
     <div class="modal-content">
 	<br>
-        <h2 style="display:none" id="editH2">Modifica Ospedale</h2>
         <form id="editForm">
+		<h2 style="display:none" id="editH2">Modifica Ospedale</h2>
             <input type="hidden" id="editCodice">
             <input type="text" style="display:none" placeholder="Nome" id="editNome" name="nome">
             <input type="text" style="display:none" placeholder="Città" id="editCitta" name="citta">
