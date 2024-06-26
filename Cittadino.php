@@ -6,13 +6,17 @@
     <title>Cittadino </title>
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/script.js" defer></script>
+	<?php
+	 // Imposta la variabile $paginaCorrente con il nome della pagina corrente
+		$paginaCorrente = "Cittadino.php";
+	 ?>
 </head>
 <body>
     <header>
         <!--<h1>Servizio Sanitario</h1>-->
 		<img src="img/servizio_sanitario.png" height="100" width="600">
 		<img class="right-image" src="img/ospedale2.png" height="100" width="100">
-		<img class="left-image" src="img/home.png" height="100" width="100">
+		<a href="index.php"><img class="left-image" src="img/home2.png" height="70" width="70" autoplay loop muted></img></a>
     </header>
    <div class="container">
 	<div class="left-sidebar">
@@ -41,18 +45,9 @@
 			</table>
 		</div>	
 	</div>
-	<div class="right-navbar">
-		<a href="index.html"><input type="button"value="Home"></a><br><br>
-		<a href="Ospedale.php"><input type="button"value="Ospedale"></a><br><br>
-		<a href="Cittadino.html"><input type="button" value="Cittadino" class="active"></a><br><br>
-		<a href="Ricovero.html"><input type="button" value="Ricovero"></a><br><br>
-		<a href="Patologia.html"><input type="button" value="Patologia"></a><br><br></div>
-   </div>
+	<?php include 'navbar.php'; ?>
         
     </div>
-    <footer>
-        <!-- Contenuto del footer -->
-        <p>Programmazione Web 2023/2024 - Teti, Bonfanti, Selmani</p>
-    </footer>
+	<?php include 'footer.html'; ?>
 </body>
 </html>

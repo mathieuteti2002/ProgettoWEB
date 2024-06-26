@@ -295,6 +295,7 @@ function showEditModal(item) {
     
 }
 document.getElementById('refreshButton').addEventListener('click', function(event) {
+    event.preventDefault();
     location.reload(); // Ricarica la pagina per aggiornare la tabella
 });
 
