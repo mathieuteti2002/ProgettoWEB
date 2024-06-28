@@ -5,7 +5,26 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(232, 205, 232);
+    box-sizing: border-box;
+
 }
+.content {
+    text-align: center;
+}
+
+
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .item {
+      padding: 10px;
+    }
+  }
+
 h2{
     text-align: center;
     text-decoration: underline;
@@ -13,11 +32,16 @@ h2{
 }
 h3{
     text-align: center;
-    text-decoration: underline;
     color: magenta;
 }
 
-
+.left-image-home {
+    position: absolute; /* Posiziona l'immagine in modo assoluto */
+    top: 300px; /* Distanza dal bordo superiore della pagina */
+    left: 19px; /* Distanza dal bordo sinistro della pagina */
+    height: 290px; /* Altezza dell'immagine */
+    width: 290px; /* Larghezza dell'immagine */
+}
 
 .modal {
     display: none; /* Assicura che la modal non sia visibile inizialmente */
@@ -42,15 +66,36 @@ h3{
 
 
 
+@keyframes heartbeat {
+    0% {
+        transform: scale(1); /* Dimensione normale */
+    }
+    25% {
+        transform: scale(1.1); /* Leggermente più grande */
+    }
+    50% {
+        transform: scale(0.9); /* Leggermente più piccolo */
+    }
+    75% {
+        transform: scale(1.1); /* Di nuovo leggermente più grande */
+    }
+    100% {
+        transform: scale(1); /* Tornare alla dimensione normale */
+    }
+}
 
 
+.pulsa{
+    animation: heartbeat 2s infinite; /* Applica l'animazione al tag h1 */
+}
 h1{
     text-align: center;
-    border-color: #000 !important;
+    border-color: #bd1212 !important;
+    color: #000;
 }
 /*Indico quale bottone è attualmente attivo*/
 .active{
-    background-color: rgb(0, 0, 0) !important; 
+    background-color: rgb(227, 41, 227) !important; 
 }
 
 /*----------------------ALLINEO I BUTTON EDIT---------------------------------------------*/
@@ -68,12 +113,12 @@ h1{
 header {
     background-color: rgb(241, 136, 241);
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     color: white;
     border-style: solid;
     border-color: black;
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 
 }
 
@@ -81,6 +126,7 @@ header {
     float: right;
     /* Allinea solo questa immagine a destra */
     margin-left: 10px;
+    margin-right: 20px;
 }
 
 .left-image {
@@ -118,10 +164,12 @@ header {
     border-radius: 20px;
 }
 
+
 /* Aggiungi stile al menu di navigazione */
 .right-navbar {
     background-color: #f4f4f4;
     padding: 20px;
+    padding-top: 16px;
     border-radius: 10px;
     flex-direction: column;
     /* Allinea i bottoni in colonna */
@@ -132,6 +180,7 @@ header {
     border-style: solid;
     border-color: black;
     max-width: 200px;
+    max-height: 480px;
 }
 
 .right-navbar form {
@@ -141,13 +190,14 @@ header {
     text-align: center;
     /* Centra il testo */
 }
-
-.right-navbar input[type="button"] {
+.right-navbar button {
     background-color: #d0a2ce;
     /* Colore di sfondo */
-    color: white;
+    color: rgb(0, 0, 0);
     /* Colore del testo */
-    padding: 10px 20px;
+    padding: 10px 28px;
+    margin-bottom: 40px;
+    margin-top: 40px;
     /* Spaziatura interna */
     border: none;
     /* Nessun bordo */
@@ -161,18 +211,17 @@ header {
     /* Fai sì che il bottone occupi l'intera larghezza */
 }
 
-.right-navbar input[type="button"]:hover {
-    background-color: #76075c;
-    /* Cambia colore al passaggio del mouse */
+.right-navbar button:hover {
+    background-color: #e811b6; /* Cambia colore al passaggio del mouse */
+    color: #fff; /* Cambia colore del testo se necessario */
+    border-color: #76075c; /* Cambia colore del bordo se necessario */
+    /* Aggiungi altri stili desiderati */
 }
-.right-navbar input[type="button"]:visited {
-    background-color: #76075c;
-    /* Cambia colore al passaggio del mouse */
-}
+
 footer {
     background-color: #f2f2f2;
     text-align: center;
-    padding: 20px;
+    padding: 1px;
     border-style: solid;
     border-color: black;
 }
@@ -198,6 +247,7 @@ li:last-child {
     font-size: 18px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: left;
+    color: #000;
 }
 
 
@@ -207,7 +257,7 @@ div.content table {
   }
  /*CONTENUTO DEI CONTENUTI---------------------------------------------------------------------------------*/
   div.content {
-    max-height: 900px; /* Imposta l'altezza massima del div */
+    max-height: 540px; /* Imposta l'altezza massima del div */
     overflow-y: auto; /* Aggiungi una barra di scorrimento verticale se il contenuto supera l'altezza massima */
     border: 1px solid #ccc; /* Aggiungi un bordo per una migliore visibilità */
     padding: 10px; /* Aggiungi un po' di padding */
@@ -287,6 +337,8 @@ div.content table th {
     cursor: pointer;
     font-size: 16px;
     margin: 10px 0;
+    width: 250px;
+    text-align: center;
 }
 
 .contentOspedale .contentCittadino .contentRicovero .contentPatologia,  button[type="submit"]:hover {
@@ -311,15 +363,111 @@ div.content table th {
     outline: none;
 }
 
-.button-container {
+.button-container{
     display: flex;
-    gap: 75px;
+    gap: 198px;
 }
 
-.buttonRefresh {
-    margin-right: 10px; /* Margine tra i bottoni (opzionale) */
+.buttonRefresh{
+    margin-right: 10px;
 }
 
 .editButton{
-    margin-right: 10px; /* Margine tra i bottoni (opzionale) */
+    margin-right: 10px;
 }
+
+@keyframes move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(100px); }
+    100% { transform: translateX(0); }
+}
+
+.animate-text {
+    animation: move 3s infinite;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button img.right-image {
+    margin-right: 10px; /* Spazio tra l'immagine e il testo */
+}
+
+button.active:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+a{
+    text-decoration: none; /* Rimuove la sottolineatura dal link */
+    color: rgb(94, 94, 192);
+}
+
+a:hover {
+    color: magenta; /* Colore del link al passaggio del mouse */
+}
+
+
+
+
+
+/* Stili per desktop */
+@media (min-width: 1024px) {
+    .left-sidebar {
+        flex: 1;
+        max-width: 250px;
+    }
+    
+    .content {
+        flex: 3;
+    }
+}
+
+/* Stili per tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .left-sidebar {
+        flex: 1;
+        max-width: 200px;
+    }
+    
+    .content {
+        flex: 2;
+    }
+}
+
+/* Stili per mobile */
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .left-sidebar, .content {
+        width: 100%;
+    }
+    
+    .left-sidebar {
+        order: 2; /* Optional: mostra la sidebar sotto il contenuto su mobile */
+    }
+    
+    .content {
+        order: 1;
+    }
+}
+ .content h2,
+.content p {
+    text-align: center;
+}
+
+  .item {
+    background-color: #ccc;
+    padding: 20px;
+    text-align: center;
+  }

@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";  // Cambia se il tuo username è diverso
+$username = "programmazioneweb";  // Cambia se il tuo username è diverso
 $password = "";      // Cambia se la tua password è diversa
-$dbname = "progettoweb";  // Sostituisci con il nome del tuo database
+$dbname = "my_programmazioneweb";  // Sostituisci con il nome del tuo database
 
 // Crea la connessione
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -16,7 +16,7 @@ if ($conn->connect_error) {
     die("Connection Failed". $conn->connect_error);
 }
 
-else if ($nome == '' || $citta == '' || $indirizzo == '') {
+else if ($nome == '' || $citta == '' || $indirizzo == '' || $direttore=='') {
     echo json_encode(array('success' => false, 'message' => 'Compilare tutti i campi'));
 } else {
     $stmt = $conn->prepare("INSERT INTO ospedale(nome, citta, indirizzo, direttoreSanitario)
@@ -36,5 +36,3 @@ else if ($nome == '' || $citta == '' || $indirizzo == '') {
     $stmt->close();
     $conn->close();
 }
-?>
-

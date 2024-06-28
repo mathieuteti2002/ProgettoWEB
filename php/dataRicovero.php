@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";  // Cambia se il tuo username è diverso
+$username = "programmazioneweb";  // Cambia se il tuo username è diverso
 $password = "";      // Cambia se la tua password è diversa
-$dbname = "progettoweb";  // Sostituisci con il nome del tuo database
+$dbname = "my_programmazioneweb";  // Sostituisci con il nome del tuo database
 
 // Crea la connessione
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -26,4 +26,4 @@ if ($result->num_rows > 0) {
 echo json_encode($data);
 
 $conn->close();
-
+?>

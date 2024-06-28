@@ -5,9 +5,9 @@ ini_set('log_errors', 1);
 ini_set('error_log', '/path/to/php-error.log'); // Assicurati di impostare il percorso corretto per il file di log degli errori
 
 $servername = "localhost";
-$username = "root";  // Cambia se il tuo username è diverso
+$username = "programmazioneweb";  // Cambia se il tuo username è diverso
 $password = "";      // Cambia se la tua password è diversa
-$dbname = "progettoweb";  // Sostituisci con il nome del tuo database
+$dbname = "my_programmazioneweb";  // Sostituisci con il nome del tuo database
 
 // Crea la connessione
 $conn = new mysqli($servername, $username, $password, $dbname);
